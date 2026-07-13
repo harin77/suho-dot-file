@@ -1,0 +1,158 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font", "Inter", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: rgba(0, 0, 0, 0.15); /* Sleek, transparent dark background */
+    border: 1.5px solid #ffffff;            /* Crisp white outline */
+    border-radius: 12px;
+    color: #ffffff;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+/* Individual Module Styling */
+#custom-launcher,
+#custom-ws1,
+#custom-ws2,
+#custom-ws3,
+#custom-ws4,
+#custom-ws5,
+#clock,
+#battery,
+#backlight,
+#network,
+#pulseaudio,
+#custom-music,
+#cpu,
+#memory,
+#tray {
+    background-color: transparent;
+    color: #ffffff;
+    padding: 0 14px;
+    margin: 4px 2px;
+}
+
+#custom-launcher {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.7);
+    padding-left: 12px;
+    padding-right: 12px;
+    border-radius: 8px;
+    transition: all 0.2s ease-in-out;
+}
+
+#custom-launcher:hover {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+#custom-music {
+    color: #e5c07b;
+    font-weight: 700;
+    border-radius: 8px;
+    transition: all 0.2s ease-in-out;
+}
+
+#custom-music:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+#cpu {
+    color: #98c379;
+}
+
+#memory {
+    color: #61afef;
+}
+
+#custom-ws1,
+#custom-ws2,
+#custom-ws3,
+#custom-ws4,
+#custom-ws5 {
+    padding: 0 10px;
+    color: rgba(255, 255, 255, 0.4);
+    border-radius: 8px;
+    transition: all 0.2s ease-in-out;
+}
+
+#custom-ws1:hover,
+#custom-ws2:hover,
+#custom-ws3:hover,
+#custom-ws4:hover,
+#custom-ws5:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+}
+
+#custom-ws1.active,
+#custom-ws2.active,
+#custom-ws3.active,
+#custom-ws4.active,
+#custom-ws5.active {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+#custom-ws1.occupied,
+#custom-ws2.occupied,
+#custom-ws3.occupied,
+#custom-ws4.occupied,
+#custom-ws5.occupied {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+#custom-ws1.urgent,
+#custom-ws2.urgent,
+#custom-ws3.urgent,
+#custom-ws4.urgent,
+#custom-ws5.urgent {
+    color: #ff5555;
+    background-color: rgba(255, 85, 85, 0.2);
+}
+
+/* Status Highlights */
+#battery.warning {
+    color: #f1c40f;
+}
+
+#battery.critical:not(.charging) {
+    color: #e74c3c;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes blink {
+    to {
+        color: rgba(231, 76, 60, 0.3);
+    }
+}
+
+#network.disconnected {
+    color: #e74c3c;
+}
+
+#pulseaudio.muted {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+}

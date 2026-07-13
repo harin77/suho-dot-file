@@ -1,0 +1,27 @@
+# Core Window Manager & Shell
+hyprland
+waybar
+rofi-wayland
+kitty
+dolphin
+quickshell
+
+# System Utilities
+pavucontrol
+playerctl
+brightnessctl
+wireplumber
+polkit-kde-agent
+python
+
+# Fonts & Theme support
+ttf-jetbrains-mono-nerd
+qt5-wayland
+qt6-wayland
+nwg-look
+
+# Display Manager & Network/Bluetooth
+sddm
+bluez
+bluez-utils
+networkmanager

@@ -1,0 +1,15 @@
+* {
+    background:                  rgba(15, 8, 22, 0.75);
+    background-alt:              rgba(15, 8, 22, 0.90);
+    foreground:                  #bab1c5;
+    accent:                      #59609c;
+    border-color:                rgba(89, 96, 156, 0.50);
+    selected-active-background:  #59609c;
+    selected-active-foreground:  #0b0310;
+    selected-urgent-background:  #232A66;
+    selected-urgent-foreground:  #bab1c5;
+    active-background:           #532459;
+    active-foreground:           #bab1c5;
+    urgent-background:           #232A66;
+    urgent-foreground:           #bab1c5;
+}

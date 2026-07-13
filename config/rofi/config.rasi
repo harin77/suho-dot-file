@@ -1,0 +1,118 @@
+configuration {
+    modi: "drun,run";
+    font: "Inter 11";
+    show-icons: true;
+    icon-theme: "Adwaita";
+    drun-display-format: "{name}";
+    display-drun: " ";
+    display-run: " ";
+}
+
+@import "colors.rasi"
+
+window {
+    transparency: "real";
+    background-color: @background;
+    text-color: @foreground;
+    border: 1.5px;
+    border-color: @border-color;
+    border-radius: 12px;
+    width: 30%;
+    anchor: center;
+    x-offset: 0;
+    y-offset: 0;
+}
+
+mainbox {
+    background-color: transparent;
+    spacing: 12px;
+    children: [ inputbar, listview ];
+    padding: 16px;
+}
+
+inputbar {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px;
+    border-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 8px 12px;
+    children: [ prompt, entry ];
+}
+
+prompt {
+    background-color: transparent;
+    text-color: @foreground;
+    margin: 0px 8px 0px 0px;
+}
+
+entry {
+    background-color: transparent;
+    text-color: @foreground;
+    placeholder: "Search applications...";
+    placeholder-color: rgba(255, 255, 255, 0.3);
+}
+
+listview {
+    background-color: transparent;
+    columns: 1;
+    lines: 8;
+    cycle: true;
+    dynamic: true;
+    layout: vertical;
+    spacing: 4px;
+}
+
+element {
+    background-color: transparent;
+    text-color: @foreground;
+    border-radius: 8px;
+    padding: 8px 12px;
+    children: [ element-icon, element-text ];
+    spacing: 8px;
+}
+
+element normal.normal {
+    background-color: transparent;
+    text-color: @foreground;
+}
+
+element alternate.normal {
+    background-color: transparent;
+    text-color: @foreground;
+}
+
+element normal.urgent {
+    background-color: transparent;
+    text-color: @foreground;
+}
+
+element alternate.urgent {
+    background-color: transparent;
+    text-color: @foreground;
+}
+
+element normal.active {
+    background-color: transparent;
+    text-color: @foreground;
+}
+
+element alternate.active {
+    background-color: transparent;
+    text-color: @foreground;
+}
+
+element-icon {
+    background-color: transparent;
+    size: 24px;
+}
+
+element-text {
+    background-color: transparent;
+    text-color: inherit;
+    vertical-align: 0.5;
+}
+
+element selected.normal, element selected.active, element selected.urgent {
+    background-color: rgba(255, 255, 255, 0.15);
+    text-color: #ffffff;
+}

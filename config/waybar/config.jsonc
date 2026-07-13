@@ -1,0 +1,154 @@
+// -*- mode: jsonc -*-
+{
+    "layer": "top",
+    "position": "top",
+    "margin-top": 10,
+    "margin-left": 14,
+    "margin-right": 14,
+    "margin-bottom": 0,
+    "height": 38,
+    "spacing": 6,
+    
+    "modules-left": [
+        "custom/launcher",
+        "custom/ws1",
+        "custom/ws2",
+        "custom/ws3",
+        "custom/ws4",
+        "custom/ws5"
+    ],
+    "modules-center": [
+        "custom/music",
+        "clock"
+    ],
+    "modules-right": [
+        "pulseaudio",
+        "network",
+        "backlight",
+        "battery",
+        "cpu",
+        "memory",
+        "tray"
+    ],
+
+    // Custom Workspaces
+    "custom/ws1": {
+        "exec": "python ~/.config/waybar/get_workspace.py 1",
+        "return-type": "json",
+        "signal": 1,
+        "on-click": "hyprctl dispatch 'hl.dsp.focus({ workspace = 1 })' && pkill -RTMIN+1 waybar"
+    },
+    "custom/ws2": {
+        "exec": "python ~/.config/waybar/get_workspace.py 2",
+        "return-type": "json",
+        "signal": 1,
+        "on-click": "hyprctl dispatch 'hl.dsp.focus({ workspace = 2 })' && pkill -RTMIN+1 waybar"
+    },
+    "custom/ws3": {
+        "exec": "python ~/.config/waybar/get_workspace.py 3",
+        "return-type": "json",
+        "signal": 1,
+        "on-click": "hyprctl dispatch 'hl.dsp.focus({ workspace = 3 })' && pkill -RTMIN+1 waybar"
+    },
+    "custom/ws4": {
+        "exec": "python ~/.config/waybar/get_workspace.py 4",
+        "return-type": "json",
+        "signal": 1,
+        "on-click": "hyprctl dispatch 'hl.dsp.focus({ workspace = 4 })' && pkill -RTMIN+1 waybar"
+    },
+    "custom/ws5": {
+        "exec": "python ~/.config/waybar/get_workspace.py 5",
+        "return-type": "json",
+        "signal": 1,
+        "on-click": "hyprctl dispatch 'hl.dsp.focus({ workspace = 5 })' && pkill -RTMIN+1 waybar"
+    },
+
+    // Clock configuration
+    "clock": {
+        "format": "{:%I:%M %p  |  %A, %b %d}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+
+    // Backlight configuration
+    "backlight": {
+        "format": "{icon}  {percent}%",
+        "format-icons": ["", "", "", "", "", "", "", "", ""]
+    },
+
+    // Battery configuration
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "bat": "BAT1",
+        "format": "{icon}  {capacity}%",
+        "format-charging": "  {capacity}%",
+        "format-plugged": "  {capacity}%",
+        "format-alt": "{time}  {icon}",
+        "format-icons": ["", "", "", "", ""]
+    },
+
+    // Network configuration
+    "network": {
+        "format-wifi": "󰖩  {essid}",
+        "format-ethernet": "󰈀  Wired",
+        "format-disconnected": "󰤮  Disconnected",
+        "tooltip-format-wifi": "Signal Strength: {signalStrength}%"
+    },
+
+    // Pulseaudio configuration
+    "pulseaudio": {
+        "format": "{icon}  {volume}%",
+        "format-bluetooth": "{icon}  {volume}%",
+        "format-muted": "󰝟  Muted",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["󰕿", "󰖀", "󰕾"]
+        },
+        "on-click": "pavucontrol"
+    },
+
+    // System Tray
+    "tray": {
+        "icon-size": 16,
+        "spacing": 10
+    },
+
+    // App Launcher
+    "custom/launcher": {
+        "format": "󰣇",
+        "on-click": "hyprctl dispatch 'hl.dsp.exec_cmd(\"rofi -show drun\")'",
+        "tooltip": false
+    },
+
+    // CPU Usage
+    "cpu": {
+        "format": "  {usage}%",
+        "interval": 2,
+        "tooltip": false
+    },
+
+    // Memory Usage
+    "memory": {
+        "format": "  {used:0.1f}G/{total:0.1f}G",
+        "interval": 2,
+        "tooltip": false
+    },
+
+    // Custom Music Module
+    "custom/music": {
+        "format": "{}",
+        "escape": true,
+        "interval": 2,
+        "exec": "playerctl metadata --format '󰎆  {{title}} - {{artist}}' 2>/dev/null || echo '󰎆  No media'",
+        "on-click": "bash ~/.config/waybar/music_player/toggle_music.sh",
+        "max-length": 35
+    }
+}
+
